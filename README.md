@@ -1,7 +1,7 @@
 # Stereo-Sky A-Frame Component 
-An alternative to `<a-sky>` but with support for cubemaps with stereo textures (ie. left and right eye  textures) 
+An alternative to `<a-sky>`, but uses stereo cube-map textures (ie. left and right eye textures) 
 
-Presented at Autodesk [Forge conference](forge.autodesk.com/).
+Presented at Autodesk [Forge conference](http://forge.autodesk.com/).
  
 
 ### Tutorial links:
