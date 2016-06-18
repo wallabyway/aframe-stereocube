@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>A-Frame, (interm0) tutorial - box selection </title>
+        <script src="https://cdn.rawgit.com/aframevr/aframe/master/dist/aframe.min.js"></script>
+    </head>
+    <body>
+<a-scene>
+    <a-camera position="0 1.8 0"><a-cursor fuse="true" color="#2E3A87" timeout="2000"></a-camera>
+    <a-sky color="#eef"></a-sky>
+
+    <a-mixin id="waypt" rotation="0 0 45" scale="2 2 3"></a-mixin>
+    <a-box color="orange" position="-2 2 -10" mixin="waypt" href="lightpink"></a-box>
+    <a-box color="lightblue" position="-10 2 -10" mixin="waypt" href="lightblue"></a-box>
+    <a-box color="green" position="4 2 -10" mixin="waypt" href="lightgreen"></a-box>
+
+</a-scene>
+</body>
+
+<script>
+    var m_sky = document.querySelector('a-sky');
+    [].forEach.call(document.querySelectorAll('a-box'), function(box) {
+        box.addEventListener('cursor-click', function (e) {
+            var sky = box.getAttribute('href');
+            m_sky.setAttribute('color',sky);
+        })
+    });
+</script>
+</html>

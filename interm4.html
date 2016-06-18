@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>A-Frame, (interm4) tutorial - moving camera </title>
+        <script src="https://cdn.rawgit.com/aframevr/aframe/master/dist/aframe.min.js"></script>
+        <script src="stereocube.js"></script>
+    </head>
+<body>
+  <a-scene>
+    <a-assets>
+      <img id="circle" src="circle.png"/>
+    </a-assets>
+
+    <a-camera stereocam position="0 0 0"><a-cursor fuse="true" color="#2E3A87" timeout="700">
+        <a-animation begin="cursor-click" easing="ease-in" attribute="scale" dur="800" 
+                     fill="backwards" from="1.0 1.0 1.0" to="100 100 100">
+        </a-animation>
+    </a-camera>
+
+    <a-mixin id="waypt" rotation="0 0 25" scale="2 2 2"></a-mixin>
+    <a-mixin id="spin" attribute="rotation" dur="10000" fill="forwards" to="0 360 25" repeat="indefinite"></a-mixin>
+    <a-mixin id="enter" begin="cursor-mouseenter" easing="ease-in" attribute="scale" dur="200" to="4 4 4"></a-mixin>
+    <a-mixin id="leave" begin="cursor-mouseleave" easing="ease-out" attribute="scale" dur="200" to="2 2 2"></a-mixin>
+
+    <a-box id="wp1" color="orange"    href="brooke0" position="-40 -10 10" mixin="waypt" src="#circle"> 
+        <a-animation mixin="enter"></a-animation>
+        <a-animation mixin="leave"></a-animation>
+        <a-animation mixin="spin"></a-animation>
+    </a-box>
+    <a-box id="wp2" color="green"     href="brooke1" position="  0 -14  0" mixin="waypt" src="#circle" ><a-animation mixin="spin"></a-animation><a-animation  mixin="enter"></a-animation><a-animation  mixin="leave"></a-animation></a-box>
+    <a-box id="wp3" color="lightblue" href="brooke3" position=" 15  -9 35" mixin="waypt" src="#circle"> <a-animation mixin="spin"></a-animation><a-animation  mixin="enter"></a-animation><a-animation  mixin="leave"></a-animation></a-box>
+    <a-box id="wp4" color="red"       href="brooke2c" position="-47 -9 -35" mixin="waypt" src="#circle"> <a-animation mixin="spin"></a-animation><a-animation  mixin="enter"></a-animation><a-animation  mixin="leave"></a-animation></a-box>
+
+    <a-entity id="skyL" skycube="folder:brooke1L; eye:left" scale="1 1 -1"></a-entity>
+    <a-entity id="skyR" skycube="folder:brooke1R; eye:right" scale="1 1 -1"></a-entity>
+  </a-scene>
+</body>
+
+<script>
+
+var app = {
+  init:  function() {
+    // Add Click handler's to our waypoints in javascript
+    [].forEach.call(document.querySelectorAll('a-box'), function(box) {
+        box.addEventListener('cursor-click', function () {
+          window.setTimeout(function(){
+            app.setSkybox ( box.getAttribute('href') );
+            app.moveCamera ( box.getAttribute('position'), document.querySelectorAll('a-camera')[0] );
+          },600)
+        })
+    });
+  },
+
+  setSkybox:  function(selectedFolder) {
+    document.querySelector('#skyL').setAttribute('skycube',{folder: selectedFolder+"L", eye:"left"});
+    document.querySelector('#skyR').setAttribute('skycube',{folder: selectedFolder+"R", eye:"right"});
+  },
+
+  hideWaypoints:  function(boxid) {
+  },
+
+  moveCamera:  function(newPosition, camera) {
+    var pos = newPosition.x +" 0 "+ newPosition.z;
+    camera.setAttribute('position', pos );
+    // move the cubemap to the same position as the camera, to avoid distortion
+    document.querySelector('#skyL').setAttribute('position', pos );
+    document.querySelector('#skyR').setAttribute('position', pos );
+  },
+}
+
+app.init();
+
+</script>
+
+</html>
