@@ -7,17 +7,26 @@ Presented at Autodesk [Forge conference](http://forge.autodesk.com/).
 ### Tutorial links:
 
 - DEMO: [final.html](http://cardboard.autodesk.com/aframe/final.html)
+
+![final](final.gif)
+
+Intermediate Steps:
+
 - interm1: [interm1.html](http://cardboard.autodesk.com/aframe/interm1.html)
 - interm2: [interm2.html](http://cardboard.autodesk.com/aframe/interm2.html)
 - interm3: [interm3.html](http://cardboard.autodesk.com/aframe/interm3.html)
 - interm4: [interm4.html](http://cardboard.autodesk.com/aframe/interm4.html)
 
-[slides](https://docs.google.com/presentation/d/1Mmb74lq3e8XI8BqfiOvzPpjZgy6IVfmvcqnFlVCnHjs/edit?usp=sharing)
+![final](interm1.gif)
+
 
 Using images from [Autodesk A360 Gallery, Project: brooke-and-lauren-model](https://gallery.autodesk.com/a360rendering/projects/44243/brooke-and-lauren-model)
 
+### Slides
+[google docs](https://docs.google.com/presentation/d/1Mmb74lq3e8XI8BqfiOvzPpjZgy6IVfmvcqnFlVCnHjs/edit?usp=sharing)
 
-### Usage
+
+## Usage:
 Add stereocube.js ...
 >` < script src="stereocube.js" > `
 
@@ -55,8 +64,7 @@ Finally, add the 'stereocam' property to your camera, like this:
 - stereo-material: [github](https://github.com/oscarmarinmiro/aframe-stereo-component)
 - href camera: [github](https://github.com/gasolin/aframe-href-component/blob/master/index.js)
 - cubemap: [git](https://rawgit.com/bryik/aframe-cubemap-component/master/dist/aframe-cubemap-component.js)
-
-
+- 360boilerplate: [github](https://github.com/aframevr/360-image-viewer-boilerplate)
 
 
 
