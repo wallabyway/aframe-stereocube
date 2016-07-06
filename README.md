@@ -90,6 +90,6 @@ Finally, add the 'stereocam' property to your camera, like this:
 
 - I'd prefer to use cubetextureLoader, but ran into issues with caching (??): [github](https://github.com/aframevr/aframe/commit/69cf2fa32da5f7bf7e55641937a27fac6dfe8d2b)
 - aframe's coordinate system: [aframe-demo](http://www.wsundine.com/a-frame/positioning)
-
+- material based cubemap: [PhaseOne](https://github.com/aframevr/aframe/pull/1515/commits/02e58a5ecf11e5216b4fc3ddc2de2bc7d7abbd7b)
 
 
