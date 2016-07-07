@@ -4,21 +4,21 @@
         <title>A-Frame, (interm2) tutorial - sky and javascript </title>
         <script src="https://cdn.rawgit.com/aframevr/aframe/master/dist/aframe.min.js"></script>
     </head>
-<body>
+    <body>
 <a-scene>
-    <a-camera position="0 1.8 0"><a-cursor fuse="true" color="#2E3A87" timeout="1000">
-        <a-animation begin="cursor-click" easing="ease-in" attribute="scale" dur="800" 
-                     fill="backwards" from="1.0 1.0 1.0" to="100 100 100">
+    <a-camera position="0 1.8 0"><a-cursor fuse="true" color="#2E3A87" timeout="2000">
+        <a-animation begin="cursor-click" easing="ease-in" attribute="scale" dur="800" fill="backwards" from="1.0 1.0 1.0" to="100 100 100">
         </a-animation>
     </a-camera>
-    <a-sky src="http://aupano.autodesk.com/panos/beb33bL.jpg"></a-sky>
+    <a-sky color="#eef"></a-sky>
 
+    <a-mixin id="waypt" rotation="0 0 45" scale="2 2 3"></a-mixin>
     <a-box color="orange" position="-2 2 -10" mixin="waypt" href="lightpink"></a-box>
     <a-box color="lightblue" position="-10 2 -10" mixin="waypt" href="lightblue"></a-box>
     <a-box color="green" position="4 2 -10" mixin="waypt" href="lightgreen">
-        <a-animation mixin="enter"></a-animation>
-        <a-animation mixin="leave"></a-animation>
-        <a-animation mixin="spin" ></a-animation>
+      <a-animation mixin="enter"></a-animation>
+      <a-animation mixin="leave"></a-animation>
+      <a-animation mixin="spin"></a-animation>      
     </a-box>
 
     <a-mixin id="waypt" rotation="0 0 45" scale="2 2 3"></a-mixin>
@@ -30,28 +30,12 @@
 </body>
 
 <script>
-var app = {
-  init:  function() {
-    // Add Click handler's to our waypoints in javascript
+    var m_sky = document.querySelector('a-sky');
     [].forEach.call(document.querySelectorAll('a-box'), function(box) {
-        box.addEventListener('cursor-click', function () {
-          app.setSkybox( box.getAttribute('href') );
-        });
+        box.addEventListener('cursor-click', function (e) {
+            var sky = box.getAttribute('href');
+            m_sky.setAttribute('color',sky);
+        })
     });
-  },
-
-  setSkybox:  function(color) {
-    document.querySelector('a-sky').setAttribute('color', color);
-  },
-
-  hideWaypoints:  function(boxid) {
-  },
-
-  moveCamera:  function(newPosition, camera) {
-  },
-}
-
-app.init();
-
 </script>
 </html>
