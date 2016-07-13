@@ -10,6 +10,8 @@ Presented at Autodesk [Forge conference](http://forge.autodesk.com/).
 
 ![final](final.gif)
 
+video showing that a-frame works on gearVR browser: [mp4](autodesk-pano.mp4)
+
 Intermediate Steps:
 
 - interm1: [interm1.html](http://cardboard.autodesk.com/aframe/interm1.html)
@@ -82,9 +84,9 @@ Finally, add the 'stereocam' property to your camera, like this:
 
 
 ### Other a-frame walkthrough's
+- [vrviewer](http://vrviewer.istaging.co/#!/684173)
 - [eyehouse](http://www.eyehouse.co/live/eye_objects/eo415279883198#)
 - [domain.com.au](http://domain-vr.herokuapp.com/)
-
 
 ### Random
 
