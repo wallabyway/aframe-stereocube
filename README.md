@@ -10,7 +10,7 @@ Presented at Autodesk [Forge conference](http://forge.autodesk.com/).
 
 ![final](final.gif)
 
-video showing that a-frame works on gearVR browser: [mp4](autodesk-pano.mp4)
+video showing that a-frame works on gearVR browser: [mp4](https://raw.githubusercontent.com/wallabyway/aframe-stereocube/master/autodesk-pano.mp4)
 
 Intermediate Steps:
 
